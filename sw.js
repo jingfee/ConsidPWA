@@ -1,11 +1,12 @@
 var CACHE = 'BraCache';
 var urlsToCache = [
-    './stylesheet.css',
-    './images/logo48.png',
-    './images/logo72.png',
-    './images/logo96.png',
-    './images/logo144.png',
-    './images/logo192.png'
+    '/stylesheet.css',
+    '/main.js',
+    '/images/logo48.png',
+    '/images/logo72.png',
+    '/images/logo96.png',
+    '/images/logo144.png',
+    '/images/logo192.png'
 ];
 
 self.addEventListener('intall', function(evt) {
@@ -20,7 +21,7 @@ self.addEventListener('fetch', function(evt) {
         return;
     }
 
-    console.log('The service worker is serving the asset: ' + evt.request.url);
+    console.log(`The service worker is serving the asset: ${evt.request.url}`);
 
     evt.respondWith(fromCache(evt.request));
     evt.waitUntil(update(evt.request));
@@ -39,7 +40,7 @@ function fromCache(request) {
                 return Promise.reject('no-match');
             }
             
-            console.log('Found in cache: ' + request.url);
+            console.log(`Found in cache: ${request.url}`);
             return matching;
         });
     });
@@ -52,3 +53,17 @@ function update(request) {
         });
     });
 }
+
+self.addEventListener('push', function(event) {
+    console.log('[Service Worker] Push Received.');
+    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+  
+    const title = 'Push Codelab';
+    const options = {
+        body: event.data.text(),
+        icon: 'images/logo48.png',
+        badge: 'images/logo72.png'
+    };
+  
+    event.waitUntil(self.registration.showNotification(title, options));
+});
