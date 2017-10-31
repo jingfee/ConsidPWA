@@ -15,4 +15,17 @@
         <p>Tongue magna mollit dolore short loin, pork deserunt adipisicing ball tip. Short loin fatback strip steak short ribs. Ut ut pastrami picanha esse brisket consequat qui ball tip cupidatat duis salami minim swine. Biltong hamburger kielbasa tenderloin quis, in fugiat boudin shoulder voluptate aute sint beef ribs ut bacon. Aliqua landjaeger eu pork loin mollit. Adipisicing frankfurter id consequat ipsum, hamburger dolore tenderloin ut doner. Quis eu commodo enim turkey voluptate in ribeye sed ut.</p>
     </div>
   </body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 </html>
