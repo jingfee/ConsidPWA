@@ -33,16 +33,6 @@ main {
   color: #1d1d1d;
 }
 
-pre {
-    white-space: pre-wrap;
-    background-color: #EEEEEE;
-    padding: 16px;
-}
-
-pre code {
-    word-break: break-word;
-}
-
 @media (max-width: 600px) {
   header > h1 {
     font-size: 36px;
