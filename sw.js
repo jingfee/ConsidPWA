@@ -54,3 +54,17 @@ function update(request) {
         });
     });
 }
+
+self.addEventListener('push', function(event) {
+    console.log('[Service Worker] Push Received.');
+    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+  
+    const title = 'Push Codelab';
+    const options = {
+        body: event.data.text(),
+        icon: '/images/logo48.png',
+        badge: '/images/logo72.png'
+    };
+  
+    event.waitUntil(self.registration.showNotification(title, options));
+});
