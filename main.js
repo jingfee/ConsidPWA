@@ -1,4 +1,4 @@
-const applicationServerPublicKey = 'BPjQzwlT_KP3KnOwOGp1EEWy6li680NdfH71WzCyKr6HOKTmqdA7_81EIDY1hLk4OeNbbhOCzfsHSgKn8xoW_70';
+const applicationServerPublicKey = 'BHDabv-maW-SI5Gthky-G26BncK-5pZa3K2qebBxP6dwb6sbeIjcF_iRFm-uLbWPOLL-yx2ATKIk-Yi2PWw76i8';
 const pushButton = document.querySelector('.js-push-btn');
 
 let isSubscribed = false;

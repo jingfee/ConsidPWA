@@ -61,8 +61,8 @@ self.addEventListener('push', function(event) {
     const title = 'Push Codelab';
     const options = {
         body: event.data.text(),
-        icon: 'images/logo48.png',
-        badge: 'images/logo72.png'
+        icon: '/images/logo48.png',
+        badge: '/images/logo72.png'
     };
   
     event.waitUntil(self.registration.showNotification(title, options));
